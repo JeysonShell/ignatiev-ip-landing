@@ -16,7 +16,12 @@ import { buildApplyShareText, formatPhone, withTextQuery } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { TelegramButton, WhatsAppButton } from "@/components/ui/cta";
+import {
+  TelegramButton,
+  WhatsAppButton,
+  telegramApplyHref,
+  whatsappApplyHref,
+} from "@/components/ui/cta";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 
@@ -59,10 +64,10 @@ export function ApplyForm() {
   if (success) {
     const telegramHref = shareText
       ? withTextQuery(EXTERNAL_LINKS.telegram, shareText)
-      : EXTERNAL_LINKS.telegram;
+      : telegramApplyHref;
     const whatsappHref = shareText
       ? withTextQuery(EXTERNAL_LINKS.whatsapp, shareText)
-      : EXTERNAL_LINKS.whatsapp;
+      : whatsappApplyHref;
 
     return (
       <div>

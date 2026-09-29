@@ -47,7 +47,7 @@ export const VACANCY_HERO = {
 
 /** Короткий префилл в мессенджер — человек не думает, с чего начать. */
 export const APPLY_MESSAGE =
-  "Здравствуйте! Хочу откликнуться на вакансию стажера в офис.";
+  `Здравствуйте! Хочу откликнуться на вакансию «${VACANCY_NAME}».`;
 
 export const VACANCY_HIGHLIGHTS: readonly VacancyHighlight[] = [
   { value: "Мы ходим", label: "на наши спектакли и концерты" },
@@ -292,7 +292,7 @@ export const APPLY_SECTION = {
   formLead: "Имя и телефон уйдут HR в Telegram.",
   asideTitle: "Написать сейчас",
   asideLead:
-    "Коротко напишите, что откликаетесь на вакансию стажера в офис — ответим с 08:00 до 18:30.",
+    `Коротко напишите, что откликаетесь на вакансию «${VACANCY_NAME}» — ответим с 08:00 до 18:30.`,
 } as const;
 
 export const FOOTER_CONTENT = {

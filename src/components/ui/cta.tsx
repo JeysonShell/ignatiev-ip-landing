@@ -8,11 +8,11 @@ import { APPLY_ANCHOR, CONTACTS, EXTERNAL_LINKS } from "@/lib/constants";
 import { APPLY_MESSAGE, VACANCY_HERO } from "@/lib/content/vacancy";
 import { formatPhone, withTextQuery } from "@/lib/utils";
 
-const telegramApplyHref = withTextQuery(
+export const telegramApplyHref = withTextQuery(
   EXTERNAL_LINKS.telegram,
   APPLY_MESSAGE,
 );
-const whatsappApplyHref = withTextQuery(
+export const whatsappApplyHref = withTextQuery(
   EXTERNAL_LINKS.whatsapp,
   APPLY_MESSAGE,
 );

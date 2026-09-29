@@ -1,7 +1,11 @@
 import { MessageCircle, Phone } from "lucide-react";
 
 import { ApplyForm } from "@/components/sections/apply-form";
-import { TelegramButton, WhatsAppButton } from "@/components/ui/cta";
+import {
+  TelegramButton,
+  WhatsAppButton,
+  telegramApplyHref,
+} from "@/components/ui/cta";
 import { ExternalLink } from "@/components/ui/external-link";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { APPLY_ID, CONTACTS, EXTERNAL_LINKS } from "@/lib/constants";
@@ -56,7 +60,7 @@ export function Apply() {
                   className="mt-2.5 size-4 shrink-0 text-green"
                 />
                 <ExternalLink
-                  href={EXTERNAL_LINKS.telegram}
+                  href={telegramApplyHref}
                   className="tap-safe inline-flex items-center font-medium text-content hover:text-accent-dark"
                 >
                   @{CONTACTS.telegram}
