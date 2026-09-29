@@ -308,12 +308,12 @@ export const APPLY_SECTION = {
   phonePlaceholder: "+7 (999) 000-00-00",
   consentPrefix: "Я соглашаюсь на обработку персональных данных и принимаю",
   consentLink: "политику конфиденциальности",
-  submitLabel: "Оставить номер",
-  successTitle: "Заявка принята",
+  submitLabel: "Отправить в Telegram",
+  successTitle: "Проверьте Telegram",
   successLead:
-    "Перезвоним в рабочие часы. Чтобы ответили быстрее — напишите сразу в Telegram или WhatsApp.",
-  formTitle: "Или оставьте номер для звонка",
-  formLead: "Имя, телефон и согласие — этого достаточно.",
+    "Нажмите «Отправить» в чате — заявка придёт @Dasha_hr01.",
+  formTitle: "Или отправьте номер в Telegram",
+  formLead: "Имя и телефон уйдут HR в Telegram.",
   asideTitle: "Написать сейчас",
   asideLead:
     "Коротко напишите, что откликаетесь на вакансию менеджера по продаже билетов — ответим с 09:00 до 18:30.",

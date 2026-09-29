@@ -38,15 +38,21 @@ export function ApplyForm() {
     },
   });
 
-  const onSubmit = handleSubmit(async (values) => {
+  const onSubmit = handleSubmit((values) => {
     setServerError(null);
-    const result = await submitApplication(values);
+    const result = submitApplication(values);
     if (!result.ok) {
       setServerError(result.message);
       return;
     }
 
-    setShareText(buildApplyShareText(values.name, values.phone));
+    const text = buildApplyShareText(values.name, values.phone);
+    setShareText(text);
+    window.open(
+      withTextQuery(EXTERNAL_LINKS.telegram, text),
+      "_blank",
+      "noopener,noreferrer",
+    );
     setSuccess(true);
   });
 

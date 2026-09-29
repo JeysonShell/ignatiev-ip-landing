@@ -43,10 +43,11 @@ export function normalizeRuPhone(input: string): string | null {
 }
 
 export function buildApplyShareText(name: string, phone: string): string {
+  const normalized = normalizeRuPhone(phone) ?? phone;
   return [
     "Здравствуйте! Хочу откликнуться на вакансию менеджера по продаже билетов.",
     `Имя: ${name}`,
-    `Телефон: ${phone}`,
+    `Телефон: ${formatPhone(normalized)}`,
   ].join("\n");
 }
 
