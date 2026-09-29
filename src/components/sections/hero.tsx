@@ -2,7 +2,11 @@ import { Badge } from "@/components/ui/badge";
 import { ApplyButton, TelegramButton } from "@/components/ui/cta";
 import { PhotoBackdrop } from "@/components/ui/photo-backdrop";
 import { SceneGallery } from "@/components/ui/scene-gallery";
-import { VACANCY_HERO, VACANCY_HIGHLIGHTS } from "@/lib/content/vacancy";
+import {
+  LEADER_MESSAGE,
+  VACANCY_HERO,
+  VACANCY_HIGHLIGHTS,
+} from "@/lib/content/vacancy";
 import { HERO_BACKDROP_SRC } from "@/lib/media";
 
 /**
@@ -41,6 +45,8 @@ export function Hero() {
                 className="sm:w-auto"
               />
             </div>
+
+            <LeaderQuote />
           </div>
         </div>
       </div>
@@ -50,6 +56,27 @@ export function Hero() {
         <SceneGallery />
       </div>
     </section>
+  );
+}
+
+function LeaderQuote() {
+  return (
+    <figure className="animate-rise mt-8 max-w-2xl">
+      <p className="text-sm font-semibold tracking-[0.16em] text-green uppercase">
+        {LEADER_MESSAGE.sectionTitle}
+      </p>
+      <blockquote className="mt-3 font-display text-lg leading-snug font-bold tracking-tight text-content md:text-xl">
+        {LEADER_MESSAGE.quote}
+      </blockquote>
+      <figcaption className="mt-4 flex flex-col gap-0.5">
+        <span className="font-semibold text-content">
+          {LEADER_MESSAGE.authorName}
+        </span>
+        <span className="text-sm text-content-muted">
+          {LEADER_MESSAGE.authorRole}
+        </span>
+      </figcaption>
+    </figure>
   );
 }
 

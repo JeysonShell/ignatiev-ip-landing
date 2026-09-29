@@ -237,7 +237,6 @@ export const TRUST_POINTS = [
 export const TEAM_SECTION = {
   eyebrow: "Команда",
   title: "Кто рядом в первый день",
-  lead: "За каждым новичком закрепляется наставник. Руководитель составил этот текст лично — так мы и работаем.",
 } as const;
 
 export const LEADER_MESSAGE = {
