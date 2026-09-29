@@ -12,7 +12,9 @@ export const SITE = {
   ogrnip: "321774600039047",
   tagline: "Работа в шоу-бизнесе Москвы",
   locale: "ru_RU",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.ru", // TODO(клиент): сайт
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    "https://jeysonshell.github.io/ignatiev-ip-landing",
   /** Лет на рынке — цифра из текста вакансии, не дата регистрации ИП (2021). */
   yearsOnMarket: 10,
 } as const;

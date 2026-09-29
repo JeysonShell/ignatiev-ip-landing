@@ -11,6 +11,8 @@ import {
 } from "@radix-ui/react-dialog";
 import { Menu, X } from "lucide-react";
 
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 import { ApplyButton, PhoneButton, TelegramButton } from "@/components/ui/cta";
 import { NAV_SECTIONS } from "@/lib/constants";
@@ -60,12 +62,12 @@ export function MobileMenu() {
               {NAV_SECTIONS.map((section) => (
                 <li key={section.id}>
                   <Close asChild>
-                    <a
+                    <Link
                       href={`/#${section.id}`}
                       className="tap-safe flex items-center border-b border-hairline py-3 font-display text-xl font-bold tracking-tight transition-colors duration-200 hover:text-accent"
                     >
                       {section.label}
-                    </a>
+                    </Link>
                   </Close>
                 </li>
               ))}

@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { ExternalLink } from "@/components/ui/external-link";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { publicSrc } from "@/lib/asset";
 import { VENUES, VENUES_SECTION } from "@/lib/content/vacancy";
 
 /**
@@ -32,7 +33,7 @@ export function Venues() {
               >
                 <span className="sr-only">{venue.name}</span>
                 <Image
-                  src={venue.logo.src}
+                  src={publicSrc(venue.logo.src)}
                   alt=""
                   width={venue.logo.width}
                   height={venue.logo.height}

@@ -1,4 +1,5 @@
 import { MessageCircle, Phone, Send } from "lucide-react";
+import Link from "next/link";
 import { type ComponentProps, forwardRef } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -43,10 +44,10 @@ export const ApplyButton = forwardRef<HTMLAnchorElement, ApplyButtonProps>(
   ) {
     return (
       <Button {...props} asChild>
-        <a ref={ref} href={APPLY_ANCHOR}>
+        <Link ref={ref} href={APPLY_ANCHOR}>
           {withIcon ? <Send aria-hidden /> : null}
           {label}
-        </a>
+        </Link>
       </Button>
     );
   },

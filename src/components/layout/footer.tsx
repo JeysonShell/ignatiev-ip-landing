@@ -39,21 +39,21 @@ export function Footer() {
             <ul className="mt-4 flex flex-col">
               {NAV_SECTIONS.map((section) => (
                 <li key={section.id}>
-                  <a
+                  <Link
                     href={`/#${section.id}`}
                     className="tap-safe inline-flex items-center text-sm text-on-navy-muted transition-colors hover:text-on-navy"
                   >
                     {section.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li>
-                <a
+                <Link
                   href={`/#${APPLY_ID}`}
                   className="tap-safe inline-flex items-center text-sm text-on-navy-muted transition-colors hover:text-on-navy"
                 >
                   Откликнуться
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>

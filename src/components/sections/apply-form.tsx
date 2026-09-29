@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { submitApplication } from "@/lib/actions/submit-application";
+import { submitApplication } from "@/lib/submit-application";
 import {
   applicationSchema,
   type ApplicationValues,

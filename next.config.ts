@@ -1,23 +1,20 @@
 import type { NextConfig } from "next";
 
-const SECURITY_HEADERS = [
-  { key: "X-Content-Type-Options", value: "nosniff" },
-  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-  { key: "X-DNS-Prefetch-Control", value: "on" },
-] as const;
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const nextConfig: NextConfig = {
+  output: "export",
+  trailingSlash: true,
+  ...(basePath ? { basePath } : {}),
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
-    formats: ["image/avif", "image/webp"],
+    unoptimized: true,
     qualities: [65, 70, 75],
   },
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
-  headers: () =>
-    Promise.resolve([{ source: "/:path*", headers: [...SECURITY_HEADERS] }]),
 };
 
 export default nextConfig;

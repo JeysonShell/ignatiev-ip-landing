@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Logo } from "@/components/layout/logo";
 import { MobileMenu } from "@/components/layout/mobile-menu";
 import { PhoneButton, TelegramButton } from "@/components/ui/cta";
@@ -18,12 +20,12 @@ export function Header() {
           <ul className="flex items-center gap-1">
             {NAV_SECTIONS.map((section) => (
               <li key={section.id}>
-                <a
+                <Link
                   href={`/#${section.id}`}
                   className="tap-safe inline-flex items-center rounded-[10px] px-3.5 text-sm font-medium text-content-muted transition-colors duration-200 hover:bg-paper-2 hover:text-content"
                 >
                   {section.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
