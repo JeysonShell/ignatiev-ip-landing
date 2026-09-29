@@ -2,7 +2,6 @@ import { Check } from "lucide-react";
 
 import { SectionHeading } from "@/components/ui/section-heading";
 import {
-  FIRST_DAY,
   ROLE_SECTION,
   VACANCY_DUTIES,
   VACANCY_REQUIREMENTS,
@@ -38,36 +37,8 @@ export function Duties() {
             <CheckList items={VACANCY_REQUIREMENTS.items} />
           </div>
         </div>
-
-        <FirstDay />
       </div>
     </section>
-  );
-}
-
-function FirstDay() {
-  return (
-    <div className="mt-10 md:mt-12">
-      <h3 className="text-lg font-bold tracking-tight text-content md:text-xl">
-        {FIRST_DAY.title}
-      </h3>
-      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-content-muted md:text-base">
-        {FIRST_DAY.lead}
-      </p>
-      <ol className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-        {FIRST_DAY.items.map((item) => (
-          <li key={item.time} className="flex flex-col gap-1.5">
-            <span className="font-display text-sm font-bold tracking-[0.16em] text-green uppercase">
-              {item.time}
-            </span>
-            <span className="font-semibold text-content">{item.title}</span>
-            <span className="text-sm leading-relaxed text-content-muted">
-              {item.description}
-            </span>
-          </li>
-        ))}
-      </ol>
-    </div>
   );
 }
 
