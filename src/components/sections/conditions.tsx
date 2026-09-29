@@ -6,7 +6,6 @@ import {
   ShieldCheck,
   TrendingUp,
   UserCheck,
-  Wallet,
 } from "lucide-react";
 
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -18,7 +17,6 @@ import {
 import { ILLUSTRATIONS } from "@/lib/media";
 
 const BENEFIT_ICONS = {
-  wallet: Wallet,
   mentor: UserCheck,
   schedule: Clock3,
   office: Building2,

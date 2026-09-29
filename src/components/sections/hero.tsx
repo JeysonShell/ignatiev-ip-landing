@@ -27,15 +27,10 @@ export function Hero() {
             </Badge>
 
             <h1 id="hero-title" className="mt-4 text-display-2xl">
-              {VACANCY_HERO.titleLead}
-              <span className="block text-accent">
-                {VACANCY_HERO.titleAccent}
-              </span>
+              {VACANCY_HERO.titleLead}{" "}
+              <span className="whitespace-nowrap">{VACANCY_HERO.titleGlue}</span>{" "}
+              <span className="text-accent">{VACANCY_HERO.titleAccent}</span>
             </h1>
-
-            <p className="animate-rise mt-4 text-lead text-content-muted">
-              {VACANCY_HERO.lead}
-            </p>
 
             <div className="animate-rise mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
               <TelegramButton size="lg" fullWidth className="sm:w-auto" />
@@ -62,11 +57,11 @@ export function Hero() {
  * Пары «значение — подпись»: dl семантически вернее сетки из div.
  * flex-col-reverse даёт визуальный порядок значение → подпись,
  * сохраняя в DOM правильную последовательность dt → dd.
- * Четыре колонки только с lg: на 768px ячейки в 158px ломают длинные подписи.
+ * Три колонки с lg: на 768px ячейки в 158px ломают длинные подписи.
  */
 function HeroHighlights() {
   return (
-    <dl className="animate-rise mt-6 grid grid-cols-2 gap-x-6 gap-y-5 md:mt-8 lg:grid-cols-4">
+    <dl className="animate-rise mt-6 grid grid-cols-2 gap-x-6 gap-y-5 md:mt-8 lg:grid-cols-3">
       {VACANCY_HIGHLIGHTS.map((highlight) => (
         <div
           key={highlight.label}

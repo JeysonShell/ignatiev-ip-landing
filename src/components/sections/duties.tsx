@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Check } from "lucide-react";
 
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -8,11 +7,8 @@ import {
   VACANCY_DUTIES,
   VACANCY_REQUIREMENTS,
 } from "@/lib/content/vacancy";
-import { ILLUSTRATIONS } from "@/lib/media";
 
 export function Duties() {
-  const art = ILLUSTRATIONS.process;
-
   return (
     <section
       id="duties"
@@ -27,31 +23,19 @@ export function Duties() {
           lead={ROLE_SECTION.lead}
         />
 
-        <div className="mt-8 grid grid-cols-1 items-start gap-8 lg:mt-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,18rem)] lg:gap-12">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-12">
-            <div>
-              <h3 className="text-lg font-bold tracking-tight text-content md:text-xl">
-                {VACANCY_DUTIES.title}
-              </h3>
-              <CheckList items={VACANCY_DUTIES.items} />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold tracking-tight text-content md:text-xl">
-                {VACANCY_REQUIREMENTS.title}
-              </h3>
-              <CheckList items={VACANCY_REQUIREMENTS.items} />
-            </div>
+        <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-12 lg:mt-10">
+          <div>
+            <h3 className="text-lg font-bold tracking-tight text-content md:text-xl">
+              {VACANCY_DUTIES.title}
+            </h3>
+            <CheckList items={VACANCY_DUTIES.items} />
           </div>
 
-          <div className="relative mx-auto aspect-[3/4] w-full max-w-[16rem] overflow-hidden rounded-[2px]">
-            <Image
-              src={art.src}
-              alt={art.alt}
-              fill
-              sizes="16rem"
-              className="object-cover object-center"
-            />
+          <div>
+            <h3 className="text-lg font-bold tracking-tight text-content md:text-xl">
+              {VACANCY_REQUIREMENTS.title}
+            </h3>
+            <CheckList items={VACANCY_REQUIREMENTS.items} />
           </div>
         </div>
 

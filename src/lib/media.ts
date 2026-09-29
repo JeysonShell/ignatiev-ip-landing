@@ -32,12 +32,6 @@ export const ILLUSTRATIONS = {
     width: 1024,
     height: 571,
   },
-  process: {
-    src: "/images/illustration-process.jpg",
-    alt: "Звонок клиенту и рукопожатие после сделки",
-    width: 1024,
-    height: 571,
-  },
   mentor: {
     src: "/images/illustration-mentor.png",
     alt: "Наставник объясняет новичку",

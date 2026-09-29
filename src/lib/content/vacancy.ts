@@ -12,7 +12,6 @@ import { SITE } from "@/lib/constants";
  * и не тянут React в контентный слой. Маппинг ключ -> иконка живёт в секции.
  */
 export type IconKey =
-  | "wallet"
   | "mentor"
   | "schedule"
   | "office"
@@ -31,15 +30,13 @@ export type VacancyHighlight = {
 };
 
 export const VACANCY_HERO = {
-  eyebrow: "Вакансия · офис в Москве",
+  eyebrow: "Вакансия · Стажер в офис",
   /**
-   * Заголовок разбит на две части: хвост получает акцентный цвет.
-   * Держим его коротким — на мобильном длинный H1 выдавливает CTA за экран,
-   * а полная SEO-формулировка живёт в <title> и description.
+   * Одна фраза. «Москвы» — акцентный хвост, без принудительного переноса.
    */
-  titleLead: "Продавай билеты",
-  titleAccent: "на концерты Москвы",
-  lead: `Офис, график 5/2 с 09:00 до 18:30. Опыт не нужен — рядом личный наставник. Заработанное можно забирать каждый день после смены.`,
+  titleLead: "Работай в",
+  titleGlue: "шоу-бизнесе",
+  titleAccent: "Москвы",
   primaryCta: "Написать в Telegram",
   secondaryCta: "Оставить номер",
   headerCta: "Написать",
@@ -50,20 +47,13 @@ export const APPLY_MESSAGE =
   "Здравствуйте! Хочу откликнуться на вакансию менеджера по продаже билетов.";
 
 export const VACANCY_HIGHLIGHTS: readonly VacancyHighlight[] = [
-  { value: "Ставка + %", label: "за выход и с продаж, выплаты после смены" },
-  { value: "5/2", label: "строго 09:00–18:30, вечера свободны" },
+  { value: "Мы ходим", label: "на наши спектакли и концерты" },
   { value: "Без опыта", label: "личный наставник с первого дня" },
   { value: `${SITE.yearsOnMarket}+ лет`, label: "на рынке шоу-бизнеса Москвы" },
 ] as const;
 
 /** Bento-сетка «Почему у нас». Раскладка задаётся в секции, не в данных. */
 export const VACANCY_BENEFITS: readonly VacancyBenefit[] = [
-  {
-    icon: "wallet",
-    title: "Деньги в день смены",
-    description:
-      "Ставка за выход плюс процент с продаж. Заработанное можно получить сразу после рабочего дня — не нужно ждать зарплату раз в месяц.",
-  },
   {
     icon: "mentor",
     title: "Личный наставник",
@@ -72,9 +62,8 @@ export const VACANCY_BENEFITS: readonly VacancyBenefit[] = [
   },
   {
     icon: "schedule",
-    title: "График 5/2, без звонков вечером",
-    description:
-      "Строго с 09:00 до 18:30, два выходных. После 18:30 база закрыта — никто не побеспокоит. Вечера свободны.",
+    title: "График 5/2",
+    description: "Строго с 08:00 до 18:30, два выходных.",
   },
   {
     icon: "office",
@@ -98,7 +87,7 @@ export const VACANCY_BENEFITS: readonly VacancyBenefit[] = [
 export const CONDITIONS_SECTION = {
   eyebrow: "Условия",
   title: "Почему сюда идут работать",
-  lead: "Офис в Москве, понятный день и деньги сразу после смены — без «разберёмся на испытательном».",
+  lead: "Понятный день и деньги сразу после смены — без «разберёмся на испытательном».",
 } as const;
 
 export const ROLE_SECTION = {
@@ -194,7 +183,7 @@ export const VENUES: readonly Venue[] = [
   {
     name: "Зал «Зарядье»",
     href: "https://zaryadyehall.ru/",
-    logo: { src: "/venues/zaryadye.svg", width: 616, height: 502 },
+    logo: { src: "/venues/zaryadye-hall.svg", width: 115, height: 85 },
   },
   {
     name: "ВТБ Ледовый дворец",
@@ -224,7 +213,7 @@ export const VENUES: readonly Venue[] = [
   {
     name: "Театр на Таганке",
     href: "https://tagankateatr.ru/",
-    logo: { src: "/venues/taganka-ink.svg", width: 214, height: 52 },
+    logo: { src: "/venues/taganka-lockup.svg", width: 278, height: 52 },
   },
   {
     name: "Театр им. Ермоловой",
