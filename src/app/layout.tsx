@@ -5,19 +5,20 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { fontClassName } from "@/lib/fonts";
 import { SITE } from "@/lib/constants";
+import { VACANCY_NAME } from "@/lib/content/vacancy";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Менеджер по продаже билетов — Москва, без опыта",
+    default: `${VACANCY_NAME} — Москва, без опыта`,
     template: `%s — ${SITE.name}`,
   },
   description:
     "Офис в Москве: продажа билетов на концерты и спектакли. Без опыта, личный наставник, ставка за выход и процент с продаж, выплаты каждый день, график 5/2 с 08:00 до 18:30.",
   applicationName: SITE.name,
   keywords: [
-    "вакансия менеджер по продажам",
+    "вакансия стажер в офис",
     "работа в Москве без опыта",
     "продажа билетов вакансия",
     "работа в офисе 5/2",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     locale: SITE.locale,
     url: SITE.url,
     siteName: SITE.name,
-    title: "Менеджер по продаже билетов — Москва, без опыта",
+    title: `${VACANCY_NAME} — Москва, без опыта`,
     description:
       "Офис, график 5/2. Личный наставник, выплаты каждый день после смены. Опыт не обязателен.",
     images: [

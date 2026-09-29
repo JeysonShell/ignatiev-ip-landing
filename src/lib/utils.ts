@@ -1,6 +1,8 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+import { APPLY_MESSAGE } from "@/lib/content/vacancy";
+
 /**
  * Склеивает классы и разрешает конфликты Tailwind (последний побеждает).
  * Единственный допустимый способ собирать className в проекте.
@@ -45,7 +47,7 @@ export function normalizeRuPhone(input: string): string | null {
 export function buildApplyShareText(name: string, phone: string): string {
   const normalized = normalizeRuPhone(phone) ?? phone;
   return [
-    "Здравствуйте! Хочу откликнуться на вакансию менеджера по продаже билетов.",
+    APPLY_MESSAGE,
     `Имя: ${name}`,
     `Телефон: ${formatPhone(normalized)}`,
   ].join("\n");

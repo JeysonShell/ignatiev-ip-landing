@@ -29,8 +29,11 @@ export type VacancyHighlight = {
   readonly label: string;
 };
 
+/** Название вакансии — одно на странице, во вкладке, в Telegram и в JobPosting. */
+export const VACANCY_NAME = "Стажер в офис";
+
 export const VACANCY_HERO = {
-  eyebrow: "Вакансия · Стажер в офис",
+  eyebrow: `Вакансия · ${VACANCY_NAME}`,
   /**
    * Одна фраза. «Москвы» — акцентный хвост, без принудительного переноса.
    */
@@ -44,7 +47,7 @@ export const VACANCY_HERO = {
 
 /** Короткий префилл в мессенджер — человек не думает, с чего начать. */
 export const APPLY_MESSAGE =
-  "Здравствуйте! Хочу откликнуться на вакансию менеджера по продаже билетов.";
+  "Здравствуйте! Хочу откликнуться на вакансию стажера в офис.";
 
 export const VACANCY_HIGHLIGHTS: readonly VacancyHighlight[] = [
   { value: "Мы ходим", label: "на наши спектакли и концерты" },
@@ -289,7 +292,7 @@ export const APPLY_SECTION = {
   formLead: "Имя и телефон уйдут HR в Telegram.",
   asideTitle: "Написать сейчас",
   asideLead:
-    "Коротко напишите, что откликаетесь на вакансию менеджера по продаже билетов — ответим с 08:00 до 18:30.",
+    "Коротко напишите, что откликаетесь на вакансию стажера в офис — ответим с 08:00 до 18:30.",
 } as const;
 
 export const FOOTER_CONTENT = {
@@ -301,7 +304,7 @@ export const FOOTER_CONTENT = {
 export const JOB_POSTING_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "JobPosting",
-  title: "Менеджер по продаже билетов",
+  title: VACANCY_NAME,
   description:
     "Продажа билетов на концерты и спектакли лучших залов Москвы. Офис, график 5/2 с 08:00 до 18:30, обучение с наставником, ставка за выход и процент с продаж, выплаты каждый день после смены. Опыт не обязателен.",
   datePosted: "2026-09-22",
