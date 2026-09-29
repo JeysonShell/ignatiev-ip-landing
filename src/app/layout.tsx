@@ -1,56 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
+import { MetrikaGoals } from "@/components/analytics/metrika-goals";
+import { YandexMetrika } from "@/components/analytics/yandex-metrika";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { fontClassName } from "@/lib/fonts";
-import { SITE } from "@/lib/constants";
-import { VACANCY_NAME } from "@/lib/content/vacancy";
+import { ROOT_METADATA } from "@/lib/seo";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE.url),
-  title: {
-    default: `${VACANCY_NAME} — Москва, без опыта`,
-    template: `%s — ${SITE.name}`,
-  },
-  description:
-    "Офис в Москве: продажа билетов на концерты и спектакли. Без опыта, личный наставник, ставка за выход и процент с продаж, выплаты каждый день, график 5/2 с 08:00 до 18:30.",
-  applicationName: SITE.name,
-  keywords: [
-    "вакансия стажер в офис",
-    "работа в Москве без опыта",
-    "продажа билетов вакансия",
-    "работа в офисе 5/2",
-  ],
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    locale: SITE.locale,
-    url: SITE.url,
-    siteName: SITE.name,
-    title: `${VACANCY_NAME} — Москва, без опыта`,
-    description:
-      "Офис, график 5/2. Личный наставник, выплаты каждый день после смены. Опыт не обязателен.",
-    images: [
-      {
-        url: "/brand/logo.jpg",
-        width: 1024,
-        height: 571,
-        alt: SITE.name,
-      },
-    ],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  formatDetection: {
-    telephone: true,
-    address: false,
-    email: false,
-  },
-};
+export const metadata: Metadata = ROOT_METADATA;
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -75,6 +34,8 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <YandexMetrika />
+        <MetrikaGoals />
       </body>
     </html>
   );

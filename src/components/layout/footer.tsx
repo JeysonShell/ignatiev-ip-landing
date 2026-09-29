@@ -11,6 +11,7 @@ import {
   SITE,
 } from "@/lib/constants";
 import { FOOTER_CONTENT } from "@/lib/content/vacancy";
+import { otklikAttrs } from "@/lib/metrika";
 import { formatPhone } from "@/lib/utils";
 
 export function Footer() {
@@ -66,6 +67,7 @@ export function Footer() {
               <a
                 href={EXTERNAL_LINKS.phone}
                 className="tap-safe inline-flex items-center font-medium text-on-navy hover:text-accent"
+                {...otklikAttrs("phone")}
               >
                 {formatPhone(CONTACTS.phone)}
               </a>

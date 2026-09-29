@@ -39,6 +39,14 @@ export const EXTERNAL_LINKS = {
   email: `mailto:${CONTACTS.email}`,
 } as const;
 
+/** Счётчик Яндекс.Метрики для Директа и Вебвизора. */
+export const YANDEX_METRIKA_ID = 113167355;
+/**
+ * JS-цель «Отклик» для Директа. В Метрике создать цель типа
+ * «JavaScript-событие» с этим идентификатором.
+ */
+export const METRIKA_GOAL_OTKLIK = "OTKLIK";
+
 /**
  * Разделы одностраничника. `id` совпадает с id секции в DOM —
  * из этого массива собирается хедер, мобильное меню и футер.
@@ -57,3 +65,10 @@ export type NavSectionId = (typeof NAV_SECTIONS)[number]["id"];
 export const APPLY_ID = "apply";
 /** Со страницы политики и любых внутренних URL якорь должен вести на главную. */
 export const APPLY_ANCHOR = `/#${APPLY_ID}` as const;
+
+/** Публичный абсолютный URL: учитывает GitHub Pages `/ignatiev-ip-landing`. */
+export function absoluteSiteUrl(path = "/"): string {
+  const origin = SITE.url.replace(/\/$/, "");
+  if (!path || path === "/") return `${origin}/`;
+  return `${origin}${path.startsWith("/") ? path : `/${path}`}`;
+}

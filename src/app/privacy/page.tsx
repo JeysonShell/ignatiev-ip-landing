@@ -3,12 +3,20 @@ import Link from "next/link";
 
 import { PATHS, SITE } from "@/lib/constants";
 import { PRIVACY_PAGE } from "@/lib/content/privacy";
+import { VACANCY_NAME } from "@/lib/content/vacancy";
 
 export const metadata: Metadata = {
   title: PRIVACY_PAGE.title,
   description:
-    "Как мы обрабатываем персональные данные кандидатов на вакансию: состав сведений, цели, сроки и права по 152-ФЗ.",
+    `Как мы обрабатываем персональные данные кандидатов на вакансию «${VACANCY_NAME}»: состав сведений, цели, сроки и права по 152-ФЗ.`,
+  alternates: { canonical: "/privacy/" },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: PRIVACY_PAGE.title,
+    description:
+      "Политика обработки персональных данных кандидатов. ИП Игнатьев Павел Александрович.",
+    url: "/privacy/",
+  },
 };
 
 export default function PrivacyPage() {

@@ -10,6 +10,7 @@ import { ExternalLink } from "@/components/ui/external-link";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { APPLY_ID, CONTACTS, EXTERNAL_LINKS } from "@/lib/constants";
 import { APPLY_SECTION } from "@/lib/content/vacancy";
+import { otklikAttrs } from "@/lib/metrika";
 import { formatPhone } from "@/lib/utils";
 
 export function Apply() {
@@ -50,6 +51,7 @@ export function Apply() {
                 <a
                   href={EXTERNAL_LINKS.phone}
                   className="tap-safe inline-flex items-center font-medium text-content hover:text-accent-dark"
+                  {...otklikAttrs("phone")}
                 >
                   {formatPhone(CONTACTS.phone)}
                 </a>
@@ -62,6 +64,7 @@ export function Apply() {
                 <ExternalLink
                   href={telegramApplyHref}
                   className="tap-safe inline-flex items-center font-medium text-content hover:text-accent-dark"
+                  {...otklikAttrs("telegram")}
                 >
                   @{CONTACTS.telegram}
                 </ExternalLink>

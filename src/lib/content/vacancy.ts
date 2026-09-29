@@ -298,29 +298,3 @@ export const FOOTER_CONTENT = {
   contactsTitle: "Контакты",
   rights: "Все права защищены.",
 } as const;
-
-/** Schema.org JobPosting — для сниппетов в поиске, без выдуманной зарплаты. */
-export const JOB_POSTING_JSON_LD = {
-  "@context": "https://schema.org",
-  "@type": "JobPosting",
-  title: VACANCY_NAME,
-  description:
-    "Продажа билетов на концерты и спектакли лучших залов Москвы. Офис, график 5/2 с 08:00 до 18:30, обучение с наставником, ставка за выход и процент с продаж, выплаты каждый день после смены. Опыт не обязателен.",
-  datePosted: "2026-09-22",
-  employmentType: "FULL_TIME",
-  workHours: "Mo-Fr 08:00-18:30",
-  jobLocation: {
-    "@type": "Place",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Москва",
-      addressCountry: "RU",
-    },
-  },
-  hiringOrganization: {
-    "@type": "Organization",
-    name: SITE.legalName,
-    taxID: SITE.inn,
-    identifier: SITE.ogrnip,
-  },
-} as const;

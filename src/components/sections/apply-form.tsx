@@ -12,6 +12,7 @@ import {
 } from "@/lib/apply-schema";
 import { CONTACTS, EXTERNAL_LINKS, PATHS } from "@/lib/constants";
 import { APPLY_SECTION } from "@/lib/content/vacancy";
+import { reachOtklik } from "@/lib/metrika";
 import { buildApplyShareText, formatPhone, withTextQuery } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
@@ -53,6 +54,7 @@ export function ApplyForm() {
 
     const text = buildApplyShareText(values.name, values.phone);
     setShareText(text);
+    reachOtklik("form");
     window.open(
       withTextQuery(EXTERNAL_LINKS.telegram, text),
       "_blank",
@@ -76,11 +78,17 @@ export function ApplyForm() {
         </p>
         <p className="mt-2 text-content-muted">{APPLY_SECTION.successLead}</p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <TelegramButton href={telegramHref} label="Telegram" fullWidth />
+          <TelegramButton
+            href={telegramHref}
+            label="Telegram"
+            fullWidth
+            trackGoal={false}
+          />
           <WhatsAppButton
             href={whatsappHref}
             variant="secondary"
             fullWidth
+            trackGoal={false}
           />
         </div>
       </div>

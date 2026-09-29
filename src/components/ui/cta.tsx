@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink } from "@/components/ui/external-link";
 import { APPLY_ANCHOR, CONTACTS, EXTERNAL_LINKS } from "@/lib/constants";
 import { APPLY_MESSAGE, VACANCY_HERO } from "@/lib/content/vacancy";
+import { otklikAttrs } from "@/lib/metrika";
 import { formatPhone, withTextQuery } from "@/lib/utils";
 
 export const telegramApplyHref = withTextQuery(
@@ -23,6 +24,8 @@ type SharedCtaProps = Omit<
 > & {
   readonly label?: string;
   readonly href?: string | undefined;
+  /** На экране успеха формы цель уже отправлена — второй раз не бьём. */
+  readonly trackGoal?: boolean;
 };
 
 type ApplyButtonProps = SharedCtaProps & {
@@ -58,13 +61,18 @@ export const TelegramButton = forwardRef<HTMLAnchorElement, SharedCtaProps>(
     {
       label = VACANCY_HERO.primaryCta,
       href = telegramApplyHref,
+      trackGoal = true,
       ...props
     },
     ref,
   ) {
     return (
       <Button {...props} asChild>
-        <ExternalLink ref={ref} href={href}>
+        <ExternalLink
+          ref={ref}
+          href={href}
+          {...(trackGoal ? otklikAttrs("telegram") : {})}
+        >
           <MessageCircle aria-hidden />
           {label}
         </ExternalLink>
@@ -75,12 +83,16 @@ export const TelegramButton = forwardRef<HTMLAnchorElement, SharedCtaProps>(
 
 export const WhatsAppButton = forwardRef<HTMLAnchorElement, SharedCtaProps>(
   function WhatsAppButton(
-    { label = "WhatsApp", href = whatsappApplyHref, ...props },
+    { label = "WhatsApp", href = whatsappApplyHref, trackGoal = true, ...props },
     ref,
   ) {
     return (
       <Button {...props} asChild>
-        <ExternalLink ref={ref} href={href}>
+        <ExternalLink
+          ref={ref}
+          href={href}
+          {...(trackGoal ? otklikAttrs("whatsapp") : {})}
+        >
           <WhatsAppIcon />
           {label}
         </ExternalLink>
@@ -91,12 +103,20 @@ export const WhatsAppButton = forwardRef<HTMLAnchorElement, SharedCtaProps>(
 
 export const PhoneButton = forwardRef<HTMLAnchorElement, SharedCtaProps>(
   function PhoneButton(
-    { label = formatPhone(CONTACTS.phone), ...props },
+    {
+      label = formatPhone(CONTACTS.phone),
+      trackGoal = true,
+      ...props
+    },
     ref,
   ) {
     return (
       <Button {...props} asChild>
-        <a ref={ref} href={EXTERNAL_LINKS.phone}>
+        <a
+          ref={ref}
+          href={EXTERNAL_LINKS.phone}
+          {...(trackGoal ? otklikAttrs("phone") : {})}
+        >
           <Phone aria-hidden />
           {label}
         </a>
