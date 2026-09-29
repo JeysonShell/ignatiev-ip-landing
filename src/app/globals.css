@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@import "../styles/theme.css";
+@import "../styles/base.css";
+
+/* Явно указываем корень сканирования классов — быстрее и предсказуемее,
+   чем автоопределение (в пути проекта есть пробел и кириллица). */
+@source "../../src";
+
+/* Именованная палитра брифа — единственный источник цветов.
+   @theme в theme.css ссылается на эти переменные. */
+:root {
+  color-scheme: light;
+  --paper: #f4eee1;
+  --paper-2: #eae2cf;
+  --card: #fbf7ee;
+  --ink: #15243b;
+  --ink-soft: #43536e;
+  --accent: #e4581f;
+  --accent-dark: #c34512;
+  --green: #1e6e50;
+  --navy: #13223a;
+}

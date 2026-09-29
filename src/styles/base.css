@@ -1,0 +1,219 @@
+/* ============================================================================
+   БАЗОВЫЙ СЛОЙ И КАСТОМНЫЕ UTILITY-КЛАССЫ
+   ========================================================================= */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    /* Единая толщина хайрлайнов: border-* без указания цвета даёт нужный тон. */
+    border-color: var(--color-hairline);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Отступ под sticky-хедер при переходах по анкорам. */
+    scroll-padding-top: 6.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-content);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Блокируем горизонтальный скролл от фоновых blob-пятен. */
+    overflow-x: clip;
+  }
+
+  /* Зерно поверх всего интерфейса. pointer-events: none — клики проходят. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-index-grain);
+    pointer-events: none;
+    opacity: 0.05;
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Видимый фокус только для клавиатуры — обязательное требование a11y. */
+  :focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--color-on-brand);
+  }
+
+  /* Уважаем системную настройку: гасим все анимации, но не ломаем вёрстку. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* --- Utility: контентная колонка -----------------------------------------
+   Mobile-first: 20px по бокам на телефоне, шире на планшете и десктопе.   */
+@utility container-page {
+  width: 100%;
+  max-width: var(--breakpoint-2xl);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @variant md {
+    padding-inline: 2rem;
+  }
+
+  @variant xl {
+    padding-inline: 3rem;
+  }
+}
+
+/* --- Utility: вертикальный ритм секций ---------------------------------- */
+@utility section-y {
+  padding-block: 2.75rem;
+
+  @variant md {
+    padding-block: 3.5rem;
+  }
+
+  @variant xl {
+    padding-block: 4.5rem;
+  }
+}
+
+/* --- Utility: минимальная тач-зона 44x44 (WCAG 2.5.5) ------------------- */
+@utility tap-safe {
+  min-block-size: 2.75rem;
+  min-inline-size: 2.75rem;
+}
+
+/* --- Utility: непрозрачная карточка ------------------------------------- */
+@utility glass {
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--ink);
+}
+
+/* --- Utility: тонкий градиентный бордер -------------------------------- */
+@utility border-gradient {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      140deg,
+      var(--color-hairline-strong),
+      transparent 42%,
+      transparent 58%,
+      color-mix(in oklab, var(--accent) 35%, transparent)
+    );
+    /* Маска оставляет только рамку, центр остаётся прозрачным. */
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* --- Utility: градиентный текст ---------------------------------------- */
+@utility text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--ink) 10%,
+    var(--accent) 70%,
+    var(--accent-dark) 100%
+  );
+  background-clip: text;
+  color: transparent;
+  /* Обрезка сверху/снизу у диакритики и подстрочных элементов. */
+  padding-block: 0.08em;
+}
+
+/* --- Utility: каскад задержек появления --------------------------------
+   Вешается на контейнер и задаёт ритм всем дочерним элементам сразу —
+   иначе значения задержек расползаются магическими числами по JSX.
+   Дети без animate-* просто игнорируют задержку, поэтому LCP-заголовок
+   можно спокойно оставлять неанимированным внутри каскада.             */
+@utility stagger {
+  & > *:nth-child(2) {
+    animation-delay: 70ms;
+  }
+  & > *:nth-child(3) {
+    animation-delay: 140ms;
+  }
+  & > *:nth-child(4) {
+    animation-delay: 210ms;
+  }
+  & > *:nth-child(5) {
+    animation-delay: 280ms;
+  }
+}
+
+/* --- Utility: мягкое световое пятно ------------------------------------
+   Берёт цвет из currentColor, поэтому композируется с любой text-* утилитой:
+   `glow-radial text-accent/15`. Радиальный градиент вместо filter: blur()
+   — тот же визуальный результат без дорогого блюра целого слоя.           */
+@utility glow-radial {
+  background-image: radial-gradient(closest-side, currentColor, transparent);
+}
+
+/* --- Utility: техно-сетка из хайрлайнов --------------------------------
+   Маска гасит сетку к низу, чтобы она не спорила с контентом.            */
+@utility hairline-grid {
+  background-image:
+    linear-gradient(to right, var(--color-hairline) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-hairline) 1px, transparent 1px);
+  background-size: 3.5rem 3.5rem;
+  mask-image: radial-gradient(
+    ellipse 75% 60% at 50% 0%,
+    #000 30%,
+    transparent 100%
+  );
+}
+
+/* --- Utility: скрыть визуально, оставить для скринридеров -------------- */
+@utility sr-only-focusable {
+  &:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

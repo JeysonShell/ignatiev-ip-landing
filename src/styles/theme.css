@@ -1,0 +1,157 @@
+/* ============================================================================
+   ДИЗАЙН-СИСТЕМА — единственный источник правды по токенам.
+   Tailwind 4 конфигурируется из CSS: каждая переменная в @theme автоматически
+   становится utility-классом (--color-accent-500 -> bg-accent-500 / text-accent-500).
+   Цвета палитры заданы в :root (globals.css) и здесь только мапятся в utilities.
+   ========================================================================= */
+
+@theme {
+  /* --- Брейкпоинты (mobile-first, min-width) ------------------------------
+     Базовая вёрстка = 360–428px без префиксов. Далее наращиваем.           */
+  --breakpoint-xs: 26.75rem; /* 428px — крупные телефоны */
+  --breakpoint-sm: 40rem; /* 640px */
+  --breakpoint-md: 48rem; /* 768px — планшет */
+  --breakpoint-lg: 64rem; /* 1024px */
+  --breakpoint-xl: 80rem; /* 1280px — десктоп */
+  --breakpoint-2xl: 90rem; /* 1440px */
+
+  /* --- Палитра брифа как Tailwind-цвета -------------------------------- */
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-green: var(--green);
+  --color-navy: var(--navy);
+
+  /* Акцентная шкала: старые accent-* классы ведут на оранжевый брифа. */
+  --color-accent-300: var(--accent);
+  --color-accent-400: var(--accent);
+  --color-accent-500: var(--accent);
+  --color-accent-600: var(--accent);
+  --color-accent-700: var(--accent-dark);
+  --color-accent-900: var(--navy);
+
+  /* --- Семантические алиасы (используем их в компонентах) --------------- */
+  --color-canvas: var(--paper);
+  --color-surface: var(--card);
+  --color-surface-raised: var(--paper-2);
+  --color-hairline: rgb(21 36 59 / 16%);
+  --color-hairline-strong: var(--ink);
+
+  --color-content: var(--ink);
+  /** ~6.7:1 на --paper — вторичный текст проходит WCAG AA. */
+  --color-content-muted: var(--ink-soft);
+  --color-content-subtle: var(--ink-soft);
+
+  --color-brand: var(--accent);
+  --color-brand-hover: var(--accent-dark);
+  --color-on-brand: #ffffff;
+  --color-focus: var(--accent);
+
+  --color-success: var(--green);
+  /** Ошибки формы: тёмно-красный на бумаге ≥ 4.5:1. */
+  --color-danger: #9b1c1c;
+
+  --color-on-navy: var(--paper);
+  --color-on-navy-muted: #c5cdd8;
+
+  /* --- Типографика ------------------------------------------------------
+     Значения подставляет next/font в layout.tsx.                          */
+  --font-sans: var(--font-golos), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-unbounded), var(--font-golos), sans-serif;
+
+  /* Флюидные размеры: одна переменная на все вьюпорты, без каскада медиа. */
+  /* Наклон подобран так, чтобы на 360px было ~32px, на 1440px — 72px.
+     Русские слова длинные: завышенный минимум выдавливал CTA за первый экран. */
+  --text-display-2xl: clamp(2rem, 1.05rem + 4.2vw, 4.5rem);
+  --text-display-2xl--line-height: 1.08;
+  --text-display-2xl--letter-spacing: -0.03em;
+  --text-display-2xl--font-weight: 800;
+
+  --text-display-xl: clamp(2rem, 1.35rem + 3.25vw, 4rem);
+  --text-display-xl--line-height: 1.1;
+  --text-display-xl--letter-spacing: -0.025em;
+  --text-display-xl--font-weight: 700;
+
+  --text-display-lg: clamp(1.625rem, 1.25rem + 1.9vw, 2.75rem);
+  --text-display-lg--line-height: 1.16;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 700;
+
+  --text-lead: clamp(1rem, 0.96rem + 0.22vw, 1.1875rem);
+  --text-lead--line-height: 1.55;
+
+  /* --- Радиусы, тени, кривые -------------------------------------------- */
+  --radius-card: 0.75rem; /* 12px */
+  --radius-bento: 0.75rem;
+  --radius-button: 0.625rem; /* 10px */
+
+  --shadow-elevate: 4px 4px 0 rgb(21 36 59 / 18%);
+  --shadow-brand: 4px 4px 0 rgb(21 36 59 / 18%);
+  --shadow-brand-strong: 6px 6px 0 rgb(21 36 59 / 18%);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Слои: скип-ссылка выше оверлея, оверлей выше липкого хедера.
+     Неймспейс --z-index-* (не --z-*): иначе utility z-* не собирается. */
+  --z-index-header: 50;
+  --z-index-overlay: 60;
+  --z-index-grain: 80;
+  --z-index-skip: 100;
+
+  /* --- Анимации ----------------------------------------------------------
+     @keyframes объявлены внутри @theme: только так Tailwind вырезает их из
+     бандла, пока соответствующий animate-* класс нигде не используется.
+     Анимируем исключительно transform/opacity — композитинг на GPU.       */
+  --animate-blob: blob 22s var(--ease-in-out-soft) infinite;
+  --animate-shimmer: shimmer 2.4s linear infinite;
+  /* fill-mode both — элемент держит начальное состояние до старта задержки. */
+  --animate-rise: rise 0.7s var(--ease-out-soft) both;
+  --animate-marquee: marquee 42s linear infinite;
+
+  @keyframes blob {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    33% {
+      transform: translate3d(4%, -6%, 0) scale(1.08);
+    }
+    66% {
+      transform: translate3d(-5%, 4%, 0) scale(0.94);
+    }
+  }
+
+  @keyframes shimmer {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 1rem, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+}
