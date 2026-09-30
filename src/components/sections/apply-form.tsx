@@ -10,10 +10,10 @@ import {
   applicationSchema,
   type ApplicationValues,
 } from "@/lib/apply-schema";
-import { CONTACTS, EXTERNAL_LINKS, PATHS } from "@/lib/constants";
+import { EXTERNAL_LINKS, PATHS } from "@/lib/constants";
 import { APPLY_SECTION } from "@/lib/content/vacancy";
 import { reachOtklik } from "@/lib/metrika";
-import { buildApplyShareText, formatPhone, withTextQuery } from "@/lib/utils";
+import { buildApplyShareText, withTextQuery } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -171,10 +171,6 @@ export function ApplyForm() {
       <Button type="submit" size="lg" fullWidth isLoading={isSubmitting}>
         {APPLY_SECTION.submitLabel}
       </Button>
-
-      <p className="text-center text-xs text-content-muted">
-        Или сразу {formatPhone(CONTACTS.phone)}
-      </p>
     </form>
   );
 }

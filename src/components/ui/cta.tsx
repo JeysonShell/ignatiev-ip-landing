@@ -1,13 +1,13 @@
-import { MessageCircle, Phone, Send } from "lucide-react";
+import { MessageCircle, Send } from "lucide-react";
 import Link from "next/link";
 import { type ComponentProps, forwardRef } from "react";
 
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "@/components/ui/external-link";
-import { APPLY_ANCHOR, CONTACTS, EXTERNAL_LINKS } from "@/lib/constants";
+import { APPLY_ANCHOR, EXTERNAL_LINKS } from "@/lib/constants";
 import { APPLY_MESSAGE, VACANCY_HERO } from "@/lib/content/vacancy";
 import { otklikAttrs } from "@/lib/metrika";
-import { formatPhone, withTextQuery } from "@/lib/utils";
+import { withTextQuery } from "@/lib/utils";
 
 export const telegramApplyHref = withTextQuery(
   EXTERNAL_LINKS.telegram,
@@ -96,30 +96,6 @@ export const WhatsAppButton = forwardRef<HTMLAnchorElement, SharedCtaProps>(
           <WhatsAppIcon />
           {label}
         </ExternalLink>
-      </Button>
-    );
-  },
-);
-
-export const PhoneButton = forwardRef<HTMLAnchorElement, SharedCtaProps>(
-  function PhoneButton(
-    {
-      label = formatPhone(CONTACTS.phone),
-      trackGoal = true,
-      ...props
-    },
-    ref,
-  ) {
-    return (
-      <Button {...props} asChild>
-        <a
-          ref={ref}
-          href={EXTERNAL_LINKS.phone}
-          {...(trackGoal ? otklikAttrs("phone") : {})}
-        >
-          <Phone aria-hidden />
-          {label}
-        </a>
       </Button>
     );
   },

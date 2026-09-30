@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Logo } from "@/components/layout/logo";
 import { MobileMenu } from "@/components/layout/mobile-menu";
-import { PhoneButton, TelegramButton } from "@/components/ui/cta";
+import { TelegramButton } from "@/components/ui/cta";
 import { NAV_SECTIONS } from "@/lib/constants";
 import { VACANCY_HERO } from "@/lib/content/vacancy";
 
@@ -32,8 +32,6 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-1.5">
-          <PhoneButton variant="ghost" size="sm" className="hidden lg:flex" />
-
           {/* На 360px кнопка уступает место логотипу и меню, с 428px возвращается. */}
           <TelegramButton
             size="sm"

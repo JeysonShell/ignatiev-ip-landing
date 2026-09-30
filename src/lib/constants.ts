@@ -35,7 +35,6 @@ export const PATHS = {
 export const EXTERNAL_LINKS = {
   telegram: `https://t.me/${CONTACTS.telegram}`,
   whatsapp: `https://wa.me/${CONTACTS.whatsapp}`,
-  phone: `tel:${CONTACTS.phone}`,
   email: `mailto:${CONTACTS.email}`,
 } as const;
 

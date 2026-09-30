@@ -11,8 +11,6 @@ import {
   SITE,
 } from "@/lib/constants";
 import { FOOTER_CONTENT } from "@/lib/content/vacancy";
-import { otklikAttrs } from "@/lib/metrika";
-import { formatPhone } from "@/lib/utils";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -64,13 +62,6 @@ export function Footer() {
               {FOOTER_CONTENT.contactsTitle}
             </p>
             <address className="mt-4 flex flex-col items-start text-sm leading-relaxed text-on-navy-muted not-italic">
-              <a
-                href={EXTERNAL_LINKS.phone}
-                className="tap-safe inline-flex items-center font-medium text-on-navy hover:text-accent"
-                {...otklikAttrs("phone")}
-              >
-                {formatPhone(CONTACTS.phone)}
-              </a>
               <ExternalLink
                 href={EXTERNAL_LINKS.email}
                 className="tap-safe inline-flex text-on-navy hover:text-accent"

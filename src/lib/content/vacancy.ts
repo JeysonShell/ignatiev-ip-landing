@@ -276,7 +276,7 @@ export const ABOUT_COMPANY = {
 export const APPLY_SECTION = {
   eyebrow: "Отклик",
   title: "Напишите — ответим в рабочие часы",
-  lead: "С телефона быстрее всего Telegram или WhatsApp. Если удобнее звонок — оставьте имя и номер, перезвоним с 08:00 до 18:30.",
+  lead: "С телефона быстрее всего Telegram или WhatsApp. Либо оставьте имя и номер в форме — перезвоним с 08:00 до 18:30.",
   nameLabel: "Имя",
   namePlaceholder: "Как к вам обращаться",
   phoneLabel: "Телефон",

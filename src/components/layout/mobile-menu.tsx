@@ -14,7 +14,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { ApplyButton, PhoneButton, TelegramButton } from "@/components/ui/cta";
+import { ApplyButton, TelegramButton } from "@/components/ui/cta";
 import { NAV_SECTIONS } from "@/lib/constants";
 
 /**
@@ -80,8 +80,6 @@ export function MobileMenu() {
             <Close asChild>
               <ApplyButton variant="secondary" size="lg" fullWidth />
             </Close>
-
-            <PhoneButton variant="ghost" size="lg" fullWidth />
           </div>
         </Content>
       </Portal>

@@ -1,4 +1,4 @@
-import { MessageCircle, Phone } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 import { ApplyForm } from "@/components/sections/apply-form";
 import {
@@ -8,10 +8,9 @@ import {
 } from "@/components/ui/cta";
 import { ExternalLink } from "@/components/ui/external-link";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { APPLY_ID, CONTACTS, EXTERNAL_LINKS } from "@/lib/constants";
+import { APPLY_ID, CONTACTS } from "@/lib/constants";
 import { APPLY_SECTION } from "@/lib/content/vacancy";
 import { otklikAttrs } from "@/lib/metrika";
-import { formatPhone } from "@/lib/utils";
 
 export function Apply() {
   return (
@@ -43,19 +42,6 @@ export function Apply() {
             </div>
 
             <ul className="mt-6 flex flex-col gap-3 text-sm text-content-muted">
-              <li className="flex gap-3">
-                <Phone
-                  aria-hidden
-                  className="mt-2.5 size-4 shrink-0 text-green"
-                />
-                <a
-                  href={EXTERNAL_LINKS.phone}
-                  className="tap-safe inline-flex items-center font-medium text-content hover:text-accent-dark"
-                  {...otklikAttrs("phone")}
-                >
-                  {formatPhone(CONTACTS.phone)}
-                </a>
-              </li>
               <li className="flex gap-3">
                 <MessageCircle
                   aria-hidden
