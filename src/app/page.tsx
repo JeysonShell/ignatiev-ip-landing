@@ -1,23 +1,18 @@
 import { Apply } from "@/components/sections/apply";
-import { Conditions } from "@/components/sections/conditions";
-import { Duties } from "@/components/sections/duties";
-import { Hero } from "@/components/sections/hero";
-import { Team } from "@/components/sections/team";
-import { Trust } from "@/components/sections/trust";
-import { Venues } from "@/components/sections/venues";
 import { JsonLd } from "@/components/seo/json-ld";
+import { ScrollStory } from "@/components/story/scroll-story";
 import { PAGE_JSON_LD } from "@/lib/seo";
 
+/**
+ * Лендинг — скроллтеллинг по кадрам (ScrollStory), затем обычная секция
+ * отклика с формой. Прежние секции (Hero, Conditions, Venues, Duties, Trust,
+ * Team) остались в components/sections, но на странице не используются.
+ */
 export default function HomePage() {
   return (
     <main id="main" tabIndex={-1}>
       <JsonLd data={PAGE_JSON_LD} />
-      <Hero />
-      <Conditions />
-      <Venues />
-      <Duties />
-      <Trust />
-      <Team />
+      <ScrollStory />
       <Apply />
     </main>
   );

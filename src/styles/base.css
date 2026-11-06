@@ -11,9 +11,12 @@
   }
 
   html {
+    /* Отступ под фиксированный хедер при переходах по анкорам.
+       Переменная нужна скроллтеллингу: от неё считается scroll-margin якорей. */
+    --scroll-pad: 6.5rem;
+
     scroll-behavior: smooth;
-    /* Отступ под sticky-хедер при переходах по анкорам. */
-    scroll-padding-top: 6.5rem;
+    scroll-padding-top: var(--scroll-pad);
     -webkit-text-size-adjust: 100%;
   }
 

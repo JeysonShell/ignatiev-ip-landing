@@ -42,6 +42,7 @@ export const VACANCY_HERO = {
   titleAccent: "Москвы",
   primaryCta: "Написать в Telegram",
   secondaryCta: "Оставить номер",
+  whatsappCta: "Написать в WhatsApp",
   headerCta: "Написать",
 } as const;
 
@@ -120,7 +121,7 @@ export const VACANCY_REQUIREMENTS = {
 export const VENUES_SECTION = {
   eyebrow: "Площадки",
   title: "Билеты в залы, которые знает вся Москва",
-  lead: "Концерты и спектакли конкретных площадок — от Кремля до Таганки. Логотип открывает официальный сайт зала.",
+  lead: "Концерты и спектакли конкретных площадок — от Кремля до Таганки. Название открывает официальный сайт зала.",
 } as const;
 
 export type VenueLogo = {
