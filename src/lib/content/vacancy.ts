@@ -124,16 +124,9 @@ export const VENUES_SECTION = {
   lead: "Концерты и спектакли конкретных площадок — от Кремля до Таганки. Название открывает официальный сайт зала.",
 } as const;
 
-export type VenueLogo = {
-  readonly src: string;
-  readonly width: number;
-  readonly height: number;
-};
-
 export type Venue = {
   readonly name: string;
   readonly href: string;
-  readonly logo: VenueLogo;
 };
 
 /** Залы и театры — блок доверия. href — официальный сайт площадки. */
@@ -141,66 +134,50 @@ export const VENUES: readonly Venue[] = [
   {
     name: "Государственный Кремлёвский Дворец",
     href: "https://www.kremlinpalace.org/",
-    logo: {
-      src: "/venues/kremlinpalace.svg",
-      width: 481,
-      height: 133,
-    },
   },
   {
     name: "Концертный зал Барвиха LUXURY VILLAGE",
     href: "https://blv.ru/",
-    logo: { src: "/venues/barvikha-ink.png", width: 599, height: 31 },
   },
   {
     name: "Московский Международный Дом музыки",
     href: "https://www.mmdm.ru/",
-    logo: { src: "/venues/mmdm.svg", width: 842, height: 437 },
   },
   {
     name: "Зал «Зарядье»",
     href: "https://zaryadyehall.ru/",
-    logo: { src: "/venues/zaryadye-hall.svg", width: 115, height: 85 },
   },
   {
     name: "ВТБ Ледовый дворец",
     href: "https://icearenamsk.ru/",
-    logo: { src: "/venues/ice-arena.png", width: 303, height: 45 },
   },
   {
     name: "Театр им. Вахтангова",
     href: "https://vakhtangov.ru/",
-    logo: { src: "/venues/vakhtangov-bronze.png", width: 96, height: 96 },
   },
   {
     name: "Театр Эстрады",
     href: "https://teatr-estrada.ru/",
-    logo: { src: "/venues/estrada-ink.png", width: 1000, height: 1000 },
   },
   {
     name: "Театр им. Пушкина",
     href: "https://teatrpushkin.ru/",
-    logo: { src: "/venues/pushkin.svg", width: 304, height: 83 },
   },
   {
     name: "Театр им. Моссовета",
     href: "https://mossoveta.ru/",
-    logo: { src: "/venues/mossovet.svg", width: 1202, height: 442 },
   },
   {
     name: "Театр на Таганке",
     href: "https://tagankateatr.ru/",
-    logo: { src: "/venues/taganka-lockup.svg", width: 278, height: 52 },
   },
   {
     name: "Театр им. Ермоловой",
     href: "https://www.ermolova.ru/",
-    logo: { src: "/venues/ermolova-cut.png", width: 958, height: 422 },
   },
   {
     name: "Московский Дворец Молодёжи",
     href: "https://mdmpalace.ru/",
-    logo: { src: "/venues/mdm.svg", width: 294, height: 76 },
   },
 ];
 

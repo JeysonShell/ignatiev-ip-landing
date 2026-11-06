@@ -8,6 +8,9 @@ import { cn } from "@/lib/utils";
 /**
  * Только фирменный знак. Имя в aria-label ссылки — видимый текст
  * рядом с логотипом не дублируем.
+ * Файл логотипа — широкий кадр на кремовом фоне. На тёмном хедере он читается
+ * как кремовая плашка, поэтому показываем квадрат по центру (object-cover),
+ * где лежит сам знак, со скруглением.
  */
 export function Logo({ className }: { readonly className?: string }) {
   return (
@@ -21,9 +24,9 @@ export function Logo({ className }: { readonly className?: string }) {
         alt=""
         width={LOGO.width}
         height={LOGO.height}
-        sizes="180px"
+        sizes="56px"
         priority
-        className="h-14 w-auto shrink-0 rounded-[2px] md:h-[4.5rem]"
+        className="size-12 shrink-0 rounded-[10px] object-cover md:size-14"
       />
     </Link>
   );

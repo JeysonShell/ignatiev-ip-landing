@@ -17,6 +17,10 @@ import { Button } from "@/components/ui/button";
 import { ApplyButton, TelegramButton } from "@/components/ui/cta";
 import { NAV_SECTIONS } from "@/lib/constants";
 
+/** Кнопки-иконки на тёмном фоне: ghost из Button рассчитан на светлый. */
+const MENU_BUTTON_CLASS =
+  "text-on-navy hover:bg-on-navy/10 hover:text-on-navy";
+
 /**
  * Мобильная навигация — единственный клиентский компонент на странице.
  * Построена на Radix Dialog, потому что он берёт на себя всю возню с
@@ -30,7 +34,12 @@ export function MobileMenu() {
   return (
     <Root>
       <Trigger asChild>
-        <Button variant="ghost" size="icon" aria-label="Открыть меню">
+        <Button
+          variant="ghost"
+          size="icon"
+          aria-label="Открыть меню"
+          className={MENU_BUTTON_CLASS}
+        >
           <Menu aria-hidden />
         </Button>
       </Trigger>
@@ -44,14 +53,19 @@ export function MobileMenu() {
           aria-describedby={undefined}
           // До 428px шторка занимает всю ширину: полоска оверлея в несколько
           // пикселей сбоку читается как дефект вёрстки, а не как шторка.
-          className="fixed inset-y-0 right-0 z-overlay flex w-full flex-col border-l border-hairline bg-paper p-5 duration-300 data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right data-[state=open]:animate-in data-[state=open]:slide-in-from-right xs:max-w-sm"
+          className="fixed inset-y-0 right-0 z-overlay flex w-full flex-col border-l border-on-navy/20 bg-navy p-5 text-on-navy duration-300 data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right data-[state=open]:animate-in data-[state=open]:slide-in-from-right xs:max-w-sm"
         >
           <div className="flex items-center justify-between">
-            <Title className="font-display text-base font-bold text-content-muted">
+            <Title className="font-display text-base font-bold text-on-navy-muted">
               Меню
             </Title>
             <Close asChild>
-              <Button variant="ghost" size="icon" aria-label="Закрыть меню">
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Закрыть меню"
+                className={MENU_BUTTON_CLASS}
+              >
                 <X aria-hidden />
               </Button>
             </Close>
@@ -64,7 +78,7 @@ export function MobileMenu() {
                   <Close asChild>
                     <Link
                       href={`/#${section.id}`}
-                      className="tap-safe flex items-center border-b border-hairline py-3 font-display text-xl font-bold tracking-tight transition-colors duration-200 hover:text-accent"
+                      className="tap-safe flex items-center border-b border-on-navy/20 py-3 font-display text-xl font-bold tracking-tight transition-colors duration-200 hover:text-accent"
                     >
                       {section.label}
                     </Link>
@@ -75,7 +89,11 @@ export function MobileMenu() {
           </nav>
 
           <div className="flex flex-col gap-3 pt-6">
-            <TelegramButton size="lg" fullWidth />
+            <TelegramButton
+              size="lg"
+              fullWidth
+              className="bg-accent-dark hover:bg-brand"
+            />
 
             <Close asChild>
               <ApplyButton variant="secondary" size="lg" fullWidth />

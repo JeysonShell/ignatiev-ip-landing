@@ -17,7 +17,7 @@ export function Apply() {
     <section
       id={APPLY_ID}
       aria-labelledby="apply-title"
-      className="relative isolate border-t border-hairline"
+      className="story-night relative isolate border-t border-hairline"
     >
       <div className="container-page section-y">
         <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-5 lg:gap-12">

@@ -553,3 +553,30 @@
     transition: none;
   }
 }
+
+/* ============================================================================
+   ТЁМНАЯ ТЕМА ДЛЯ ОБЫЧНЫХ БЛОКОВ (форма отклика)
+   Компоненты формы написаны на токенах Tailwind (text-content, bg-card,
+   border-ink, ...). Вместо переписывания разметки переопределяем сами токены
+   в пределах блока: утилиты читают их через var(--color-*).
+   ========================================================================= */
+
+.story-night {
+  --color-canvas: var(--navy);
+  --color-content: var(--paper);
+  --color-content-muted: #c9d1dc;
+  --color-ink: var(--paper);
+  --color-ink-soft: #c9d1dc;
+  --color-card: rgb(244 238 225 / 0.08);
+  --color-paper-2: rgb(244 238 225 / 0.14);
+  --color-hairline: rgb(244 238 225 / 0.26);
+  --color-hairline-strong: var(--paper);
+  --color-green: #7fd1a8;
+  --color-danger: #ff9f8f;
+  --color-brand: var(--accent-dark);
+  --color-brand-hover: var(--accent);
+  --color-accent-dark: var(--accent);
+
+  background-color: var(--navy);
+  color: var(--paper);
+}

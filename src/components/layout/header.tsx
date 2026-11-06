@@ -7,12 +7,13 @@ import { NAV_SECTIONS } from "@/lib/constants";
 import { VACANCY_HERO } from "@/lib/content/vacancy";
 
 /**
- * Липкий хедер без blur: непрозрачный фон, серверный компонент.
- * Клиентский JS на странице сводится к мобильному меню.
+ * Фиксированный хедер без blur: непрозрачный тёмный фон под цвет истории
+ * и футера, серверный компонент. Высота (h-20 / md:h-24 + 1px границы)
+ * продублирована в --story-top (styles/story.css): от неё считается закрепление.
  */
 export function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-header border-b border-hairline bg-canvas">
+    <header className="fixed inset-x-0 top-0 z-header border-b border-on-navy/20 bg-navy text-on-navy">
       <div className="container-page flex h-20 items-center justify-between gap-4 md:h-24">
         <Logo />
 
@@ -22,7 +23,7 @@ export function Header() {
               <li key={section.id}>
                 <Link
                   href={`/#${section.id}`}
-                  className="tap-safe inline-flex items-center rounded-[10px] px-3.5 text-sm font-medium text-content-muted transition-colors duration-200 hover:bg-paper-2 hover:text-content"
+                  className="tap-safe inline-flex items-center rounded-[10px] px-3.5 text-sm font-medium text-on-navy-muted transition-colors duration-200 hover:bg-on-navy/10 hover:text-on-navy"
                 >
                   {section.label}
                 </Link>
@@ -36,7 +37,7 @@ export function Header() {
           <TelegramButton
             size="sm"
             label={VACANCY_HERO.headerCta}
-            className="hidden xs:flex"
+            className="hidden bg-accent-dark hover:bg-brand xs:flex"
           />
 
           <div className="lg:hidden">

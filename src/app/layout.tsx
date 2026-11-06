@@ -15,7 +15,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   // maximumScale не ограничиваем: пользователь должен иметь возможность зумить.
-  themeColor: "#F4EEE1",
+  themeColor: "#13223A",
   colorScheme: "light",
 };
 
